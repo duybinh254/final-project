@@ -1,0 +1,31 @@
+
+#movie {
+    background-color: #333;
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+.title h3 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+}
+.btn-more {
+    background-color: #222;
+    padding: 5px 15px;
+    border-radius: 26px;
+    color: #fff;
+    border:  2px solid #fff;
+}
+.btn-more:hover {
+    border: 2px solid #e74c3c;
+}
+.last {
+    padding-bottom: 100px;
+}
