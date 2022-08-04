@@ -7,6 +7,8 @@ import TVtrending from '../../component/Slider/tvtrending'
 import TVpopular from '../../component/Slider/tvpopular'
 
 function Home(props) {
+document.title ="Phim hay"
+
   return (
     <div>
      

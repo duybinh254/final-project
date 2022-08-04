@@ -9,7 +9,7 @@ const TV = () => {
     const [totalPage, setTotalPage] = useState();
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-  
+    document.title = "Phim hay | Phim bộ mới nhất"
     const scrollTop = () => {
       window.scrollTo({
         top: 0,
@@ -64,7 +64,7 @@ const TV = () => {
             <div className="grid-layout grid-gap-20px-20px">
             {!loading ? (
               movies?.map((item) => (
-                <Link key={item.id} to={`/details/movie/${item.id}`}>
+                <Link key={item.id} to={`/details/tv/${item.id}`}>
                   <TVitem data={item} />
                 </Link>
               ))

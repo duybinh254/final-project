@@ -36,7 +36,7 @@ function Cast () {
 
     return (
         <div >
-      <h3 className="cast-title">Cast</h3>
+      <h3 className="cast-title">Diễn viên</h3>
       <div className="cast grid-gap-20px-20px grid-layout">
         {loading ? (
           <>

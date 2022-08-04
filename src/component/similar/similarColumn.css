@@ -1,0 +1,38 @@
+
+.similar-column {
+    height: 520px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+
+
+.similar-column-list {
+    padding-left: 0;
+}
+.similar-column-list-item { 
+    display: flex;
+    margin-bottom: 15px;
+
+}
+
+.similar-column-img {
+    width: 100px;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.similar-column-title {
+width:calc(100% - 100px) ;
+font-size: 14px;
+padding: 0 10px;
+
+}
+
+
+@media (max-width:1023px) {
+    .similar-column {
+        display: none;
+    }
+}

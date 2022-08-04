@@ -35,7 +35,7 @@ const TVtrending  = ({ type }) => {
       const getMovie = () => {
         fetch(
           // type === "trending"
-             `${apiConfig.baseUrl}/trending/tv/week?api_key=${apiConfig.apiKey}`
+             `${apiConfig.baseUrl}/trending/tv/week?api_key=${apiConfig.apiKey}&language=vi`
             // : `${apiConfig.baseUrl}/movie/${type}/?api_key=${apiConfig.apiKey}`
             
         )
@@ -59,8 +59,10 @@ const TVtrending  = ({ type }) => {
         <div className="container new-movies">
         
         <div className="title">
+          <Link to={`tv_series`}>
           <h3>TV Trending</h3>
-          <Link to={`/TV/${type}`}>
+          </Link>
+          <Link to={`/tv_series`}>
             <button className="btn-more">View more</button> 
           </Link>
         </div>
@@ -76,7 +78,7 @@ const TVtrending  = ({ type }) => {
           {!loading ? (
           movie.map((item) => (
             <SwiperSlide key={item.id}>
-              <Link to={`/details/TV/${item.id}`}>
+              <Link to={`/details/tv/${item.id}`}>
                 <TVitem data={item} />
               </Link>
             </SwiperSlide>

@@ -3,15 +3,15 @@ import SwiperCore, { Navigation } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import { useState, useEffect } from "react";
-import TVitem from "../TV/TVitem"
+import MovieItem from "../Movies/movieItem";
 import { Link } from "react-router-dom";
 import apiConfig from "../../api";
 import "bootstrap/dist/css/bootstrap.css"
 import useInnerWidth from "../Width"
-import "./slider.css"
+import "./similar.css"
 
 
-const TVpopular  = ({ type }) => {
+const Similar  = ({ type }) => {
   SwiperCore.use([Navigation])
     const [movie, setMovie] = useState([]);
 
@@ -34,14 +34,11 @@ const TVpopular  = ({ type }) => {
     useEffect(() => {
       const getMovie = () => {
         fetch(
-          // type === "trending"
-             `${apiConfig.baseUrl}/tv/popular?api_key=${apiConfig.apiKey}&language=vi`
-            // : `${apiConfig.baseUrl}/movie/${type}/?api_key=${apiConfig.apiKey}`
-            
+             `${apiConfig.baseUrl}/trending/movie/week?api_key=${apiConfig.apiKey}&language=vi`                      
         )
           .then((res) => res.json())
           .then( (data) => {
-            console.log(data);
+            console.log(data)
              setMovie(data.results);
             setLoading(false);
           })
@@ -56,14 +53,16 @@ const TVpopular  = ({ type }) => {
     }, [type]);
   
     return (
-      <section id="movie" className="last">
+      <section id="movie">
         <div className="container new-movies">
         
         <div className="title">
-          <Link to={`tv_series`}><h3>TV Popular</h3></Link>
-          <Link to={`/tv_series`}>
-            <button className="btn-more">View more</button> 
+          <Link to={`movies`}>
+          <h4>Top trending</h4>
           </Link>
+          {/* <Link to={`/movies`}>
+            <button className="btn-more">View more</button> 
+          </Link> */}
         </div>
        
         
@@ -77,8 +76,8 @@ const TVpopular  = ({ type }) => {
           {!loading ? (
           movie.map((item) => (
             <SwiperSlide key={item.id}>
-              <Link to={`/details/tv/${item.id}`}>
-                <TVitem data={item} />
+              <Link to={`/details/movie/${item.id}`}>
+                <MovieItem data={item} />
               </Link>
             </SwiperSlide>
           ))
@@ -100,5 +99,5 @@ const TVpopular  = ({ type }) => {
 
 
 
-export default TVpopular
+export default Similar
 

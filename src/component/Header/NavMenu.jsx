@@ -1,7 +1,11 @@
-import React from "react";
+import {useState} from "react";
 import { NavLink } from "react-router-dom";
 
 const NavMenu = () => {
+
+  
+ 
+
   return (
     <ul className="nav-menu">
       <li className="close-icon" >

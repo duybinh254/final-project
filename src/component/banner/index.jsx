@@ -8,7 +8,7 @@ const Banner = () => {
   
     useEffect(() => {
       function getBanner() {
-        fetch(`${apiConfig.baseUrl}/trending/movie/week?api_key=${apiConfig.apiKey}`)
+        fetch(`${apiConfig.baseUrl}/trending/movie/week?api_key=${apiConfig.apiKey}&language=vi`)
           .then((res) => res.json())
           .then((data) => {
             const random = Math.floor(Math.random() * 20);          
@@ -36,17 +36,18 @@ const Banner = () => {
             <h1 className="banner-info-title">{banner?.title}</h1>
             <p className="banner-info-overview">{banner?.overview}</p>
             <div className="banner-button">
-              <Link
-                to={`watch/movie/${banner?.id}`}
-                className="banner-button-link btn-watch"
-              >
-                Watch Now
-              </Link>
+              
               <Link
                 to={`/details/movie/${banner?.id}`}
                 className="banner-button-link"
               >
                 View Info
+              </Link>
+              <Link
+                to={`watch/movie/${banner?.id}`}
+                className="banner-button-link btn-watch"
+              >
+                Watch Now
               </Link>
             </div>
           </div>

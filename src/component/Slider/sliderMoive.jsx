@@ -34,10 +34,7 @@ const SliderMovie  = ({ type }) => {
     useEffect(() => {
       const getMovie = () => {
         fetch(
-          // type === "trending"
-             `${apiConfig.baseUrl}/trending/movie/week?api_key=${apiConfig.apiKey}`
-            // : `${apiConfig.baseUrl}/movie/${type}/?api_key=${apiConfig.apiKey}`
-            
+             `${apiConfig.baseUrl}/trending/movie/week?api_key=${apiConfig.apiKey}&language=vi`                      
         )
           .then((res) => res.json())
           .then( (data) => {
@@ -60,8 +57,10 @@ const SliderMovie  = ({ type }) => {
         <div className="container new-movies">
         
         <div className="title">
+          <Link to={`movies`}>
           <h3>Movie Trending</h3>
-          <Link to={`/movie/${type}`}>
+          </Link>
+          <Link to={`/movies`}>
             <button className="btn-more">View more</button> 
           </Link>
         </div>

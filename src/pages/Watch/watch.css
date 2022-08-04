@@ -1,0 +1,81 @@
+#watch-movie-page {
+  background-color: #333;
+  margin-bottom: 100px
+  ;
+}
+.watch-movie-container , .watch-tv-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    animation: fadeIn 0.5s linear;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+
+  .watch-wrap {
+    width: 76%;
+  }
+
+  .watch-movie ,.watch-tv {
+    aspect-ratio: 16/9;
+    background-color: #222;
+  }
+  .watch-movie-info {
+    /* width: 76%; */
+    color :#fff;
+    margin-top: 30px;
+  }
+  .watch-movie-release {
+    margin-top: 15px;
+  }
+  .btn-genres {
+    background-color:initial;
+    color: #fff;
+
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    border-radius: 50px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+.detail-movie-genres {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.watch-movie-similar {
+  width: 20%;
+  color: #fff;
+}
+
+.watch-tv-season {
+  margin-top: 20px;
+}
+
+@media (max-width: 1023px) {
+.watch-wrap {
+  width: 100%;
+}
+
+.watch-movie-similar {
+  display: none;
+}
+
+}
+
+@media (max-width:576px) {
+  .watch-movie-title {
+    font-size: 24px;
+  }
+  .watch-movie-release {
+    font-size: 14px;
+
+  }
+  .watch-movie-description {
+    font-size: 14px;
+  }
+  .detail-movie-genres {
+    font-size: 14px;
+  }
+}

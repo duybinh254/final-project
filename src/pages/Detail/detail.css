@@ -1,0 +1,136 @@
+#details {
+    background-color: #333;
+}
+.detail {
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    aspect-ratio: 2/1;
+    position: relative;
+}
+.detail:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(52,73,94,.2549019607843137),#333 90%);
+    position: absolute;
+    /* z-index: 1; */
+}
+
+.detail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 2;
+    position: relative;
+    margin-top: 80px;
+    margin-bottom: 20px
+}
+
+.detail-movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    width: 300px;
+    height: 450px;
+
+    border-radius: 10px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.detail-movie-info {
+    width: 68%;
+    max-width: 100%;
+    color: #fff;
+}
+.detail-movie-info-title {
+    font-size: 30px;
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+/* .detail-movie-info-discription {} */
+
+.btn-genres {
+    background-color:initial;
+    color: #fff;
+
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    border-radius: 50px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.rating {
+    display:  flex;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+.rating-para  {
+    margin-bottom: 0;
+    margin-left: 10px;
+    line-height: 100%;
+}
+.watch {
+    margin-top: 40px;
+}
+.watch-link {
+    background-color: initial;
+    color: #fff;
+    /* border: 2px solid #fff; */
+    padding: 10px 14px;
+    margin-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.watch-trailer {
+    background-color: #357ebd;
+}
+.watch-now {
+    background-color: #e74c3c;
+}
+
+.homepage-link {
+    color: #fff;
+}
+.mark-homepage {
+    background-color: #333;
+}
+
+.trailer-content {
+    margin-top: 30px;
+}
+
+.trailer-video {
+    margin-top: 50px;
+}
+.trailer-name {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+#trailer {
+    margin-top: 80px;
+}
+
+@media (max-width:1023px) {
+
+    .detail-container {
+        justify-content: center;
+    }
+    .detail-movie-info {
+        width:100%;
+
+    }
+    .detail-movie-info-title {
+        text-align: center;
+        margin-top: 30px;
+    }
+}

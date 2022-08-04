@@ -3,8 +3,8 @@ import {useCallback, useEffect, useState} from "react";
 import apiConfig from "../../api";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css"
-import useInnerWidth from "../../component/Width";
 import 'boxicons';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 const Movies = () => {
@@ -13,13 +13,14 @@ const [totalPage, setTotalPage] = useState()
 const [movie, setMovie] = useState([])
 const [loading, setLoading] = useState(false);
 
-
+document.title = "Phim hay | Phim lẻ mới nhất"
 const fetchMovie = useCallback(() => {
-    fetch (`${apiConfig.baseUrl}/movie/upcoming?api_key=${apiConfig.apiKey}&page=${page}`)
+    fetch (`${apiConfig.baseUrl}/movie/upcoming?api_key=${apiConfig.apiKey}&language=vi&page=${page}`)
     .then(response => response.json())
     .then(data => {
         setMovie((prev) =>[...prev, ...data.results])
         setTotalPage(data.total_pages)
+        console.log(data.total_pages);
         setLoading(false)
     })
     .catch((err) => {
@@ -28,12 +29,14 @@ const fetchMovie = useCallback(() => {
       });
 },[page])
 
-const scrollTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
+
+  const scrollTop = () => {
+    
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 
 useEffect(() => {
     setLoading(true);
@@ -41,8 +44,10 @@ useEffect(() => {
 },[page, fetchMovie])
 
 const LoadMore =() => {
+    
     setPage(page + 1)
-}
+    
+};
 
 return (
     <section id="movies" style={{
@@ -66,31 +71,13 @@ return (
         <div className="grid-layout grid-gap-20px-20px">
         {!loading ? (
           movie?.map((item) => (
-            <Link key={item.id} to={`/detail/movie/${item.id}`}>
+            <Link key={item.id} to={`/details/movie/${item.id}`}>
               <MovieItem data={item} />
             </Link>
           ))
         ) : (
             <div> 
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                    
                     <div></div>
             </div>
         )
@@ -103,11 +90,13 @@ return (
         
       </div>
 
-        {page < totalPage ? (
-        <div onClick={LoadMore} className="load-more">
-          <button className="load-more-button">Load More</button>
+      {
+        page < totalPage ? (
+        <div  className="load-more">
+          <button onClick={LoadMore} className="load-more-button">Load More</button>
         </div>
-      ) : null}
+      ) : null
+      }
     </div>
     </section>
 
