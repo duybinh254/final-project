@@ -8,7 +8,7 @@ const TV = () => {
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState();
     const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     document.title = "Phim hay | Phim bộ mới nhất"
     const scrollTop = () => {
       window.scrollTo({
@@ -20,21 +20,21 @@ const TV = () => {
     
 
     const getTvShow = useCallback(() => {
-      fetch(`${apiConfig.baseUrl}/tv/on_the_air?api_key=${apiConfig.apiKey}&page=${page}`)
+      fetch(`${apiConfig.baseUrl}/tv/on_the_air?api_key=${apiConfig.apiKey}&page=${page}&&language=vi`)
         .then((res) => res.json())
         .then((data) => {
           setMovies((prev) => [...prev, ...data.results]);
           setTotalPage(data.total_pages);
-          setLoading(false);
+          // setLoading(false);
         })
         .catch((err) => {
           console.log(err);
-          setLoading(false);
+          // setLoading(false);
         });
     }, [page]);
   
     useEffect(() => {
-      setLoading(true);
+      // setLoading(true);
       getTvShow();
     }, [page, getTvShow]);
   
@@ -62,36 +62,13 @@ const TV = () => {
             >TV Series</h1>
     
             <div className="grid-layout grid-gap-20px-20px">
-            {!loading ? (
+            {
               movies?.map((item) => (
                 <Link key={item.id} to={`/details/tv/${item.id}`}>
                   <TVitem data={item} />
                 </Link>
               ))
-            ) : (
-                <div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                </div>
-            )
+            
               
               }
             </div>

@@ -144,27 +144,8 @@ useEffect (() => {
 
        
         </div>
-
-        
-          
-
-
       </div>
-
-           
-      
-
       </div>
-
-
-      
-      {/* <div className='container'>
-      <div className='homepage-link'>
-            <a target="blank" href={data.homepage}>Homepage: <mark className='mark-homepage'> {data.homepage}</mark></a>
-
-        </div>
-      </div> */}
-
 
 <div style={{backgroundColor: "#333"}}>
           <div className='container'>

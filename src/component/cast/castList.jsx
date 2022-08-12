@@ -8,7 +8,6 @@ import "./cast.css"
 
 function Cast () {
     const [cast, setCast] = useState([]);
-    const [loading, setLoading] = useState(false)
     const params = useParams ()
     const {media_type, id} = params
     console.log(params.id);
@@ -20,15 +19,15 @@ function Cast () {
               .then((res) => res.json())
               .then((cast) => {
                 setCast(cast.cast.slice(0, 10));
-                setLoading(false);
+               
               })
               .catch((err) => {
                 console.log(err);
-                setLoading(false);
+                
               });
           };
       
-          setLoading(true);
+          
           getCast(media_type, id);
         }, [media_type, id]);
       
@@ -38,22 +37,9 @@ function Cast () {
         <div >
       <h3 className="cast-title">Diễn viên</h3>
       <div className="cast grid-gap-20px-20px grid-layout">
-        {loading ? (
-          <>
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div/>
-            <div />
-            <div />
-            <div />
-          </>
-        ) : (
+        {
           cast.map((item) => <CastItem data={item} key={item.id} />)
-        )}
+        }
       </div>
     </div>
     )

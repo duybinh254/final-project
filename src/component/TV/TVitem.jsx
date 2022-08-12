@@ -1,11 +1,10 @@
-import apiConfig from '../../api'
-import {useEffect, useState} from "react"
+
 import "bootstrap/dist/css/bootstrap.css"
 import "./TVitem.css"
 const TVitem = ({data}) => {
 
-  const { poster_path } = data;
-  console.log(data?.name);
+  // const { poster_path } = data;
+  // console.log(data?.name);
 
   return (
     <div className='container'>

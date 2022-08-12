@@ -1,6 +1,5 @@
-// import {useState, useEffect} from "react"
-import { Routes, Route, Link } from 'react-router-dom';
-// import Routes from "./config";
+// import {useState, useEffect, useRef} from "react"
+import { Routes, Route } from 'react-router-dom';
 import "swiper/swiper.min.css"
 import './App.css';
 import Header from './component/Header';
@@ -19,8 +18,7 @@ import Login from './component/Login/Login';
 
 
 function App() {
-
-  
+ 
   return (
    
     <div className="App" >
@@ -38,6 +36,7 @@ function App() {
       <Route path="/login" element={<Login />} />
 
     </Routes>
+    
       <Footer />
     </div>
   );

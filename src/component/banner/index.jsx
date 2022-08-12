@@ -15,14 +15,14 @@ const Banner = () => {
   console.log(data);
             setBanner(data.results[random]);
           })
-          .catch((err) => console.log(err));
+          // .catch((err) => console.log(err));
       }
       
       getBanner();
     }, []);
-    const image= `url(https://image.tmdb.org/t/p/original${banner?.backdrop_path})`
-    console.log(image);
-    console.log(banner);
+    // const image= `url(https://image.tmdb.org/t/p/original${banner?.backdrop_path})`
+    // console.log(image);
+    // console.log(banner);
     return (
       <div
         className="banner"

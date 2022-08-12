@@ -1,8 +1,7 @@
-import {useState, useEffect, useRef} from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import {useState} from 'react'
+import { useNavigate} from 'react-router-dom'
 import "./search.css"
-import apiConfig from '../../api'
+
 
 function Search() {
     document.title = "Phim hay | Tìm kiếm phim"

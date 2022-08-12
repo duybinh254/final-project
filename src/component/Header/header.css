@@ -288,6 +288,7 @@ ul.nav-menu-item a.active {
 
 .menu-bars {
   color: #e74c3c;
+  cursor: pointer;
 }
 .sign-in {
   display: flex;

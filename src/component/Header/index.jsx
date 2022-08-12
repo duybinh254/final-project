@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
+import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
 import "bootstrap/dist/css/bootstrap.css";
 import * as FaIcons from "react-icons/fa";
@@ -10,32 +8,14 @@ import { NavLink } from "react-router-dom";
 
 function Header() {
   const headerRef = useRef(null);
-
-  // const location = useLocation();
-
-  // const [showMenu, setShowMenu] = useState(false);
+  // const overlayRef = useRef(null);
 
   const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  const showSidebar = () =>{
+       setSidebar(true);
+      
+  } ;
   const closeSidebar = () => setSidebar(false) ;
-
-
-  // const [show, setShow] = useState(false);
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
-  // const [showCreate, setShowCreate] = useState(false);
-  // const handleCloseCreate = () => setShowCreate(false);
-  // // const handleShowCreate = () => setShowCreate(true) 
-  // const handleShowCreate = () => {
-  //   setShowCreate(true)
-
-  //   if(setShowCreate(true)) {
-  //     setShow(false)
-  //   }
-
-  // }
-
 
 
   const navigate = useNavigate()
@@ -48,7 +28,9 @@ function Header() {
   useEffect(() => {
     const handleFixedHeader = () => {
       const header = headerRef.current;
+      // console.log(header);
       const sticky = header.offsetTop;
+      // console.log(sticky);
 
       if (header) {
         //window.pageYOffset : trả về số pixel mà document đã được cuộn theo phương Y
@@ -72,11 +54,7 @@ function Header() {
   return (
     <div ref={headerRef} className="header">
       <div
-        className="header-list"
-        // style={{
-        //   top: showMenu ? "0%" : "-100%",
-        // }}
-      >
+        className="header-list" >
         <Link to="/" className="header-logo">
           <span>PHIMHAY</span>
         </Link>
@@ -134,7 +112,7 @@ function Header() {
 
         </nav>
       </div>
-      
+    
       <div className="header-info">
         <Link to="/search" className="header-search">
           <button className="btn-search"><FaIcons.FaSearch /></button>
@@ -153,7 +131,7 @@ function Header() {
           </span>
       </div>
       </div>
-       
+      
     </div>
   );
 }

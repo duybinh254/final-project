@@ -9,9 +9,9 @@ import "./search.css"
 function SearchResults() {
 
 
-    const location = useLocation();
+    const location = useLocation();  //lấy thông tin URL
     console.log(location);
-    const paramsString = location.search
+    const paramsString = location.search  
     const searchParams = new URLSearchParams(paramsString)  
     const keyword = searchParams.get("q");
   
@@ -21,7 +21,7 @@ function SearchResults() {
   
     const [totalPage, setTotalPage] = useState();
   
-    const [loading, setLoading] = useState(true);
+    
   
     const LoadMore = () => {
       setPage(page + 1);
@@ -37,23 +37,23 @@ function SearchResults() {
           .then((data) => {
             setTotalPage(data.total_pages);
             console.log(setTotalPage(data.total_pages));
-            setResults((prev) => [...prev, ...data.results]);
-            setLoading(false);
+            setResults((prev) => [...prev, ...data.results]); 
+            console.log(data.results);            
           })
           .catch((err) => {
             console.log(err);
-            setLoading(false);
+           
           });
       },
       [page]
     );
   
     useEffect(() => {
-      setLoading(true);
+     
       searchKeywordforUser(keyword);
     }, [page, keyword, searchKeywordforUser]);
   
-    if (!loading && results.length === 0) {
+    if ( results.length === 0) {
       return (
         <div className="non-results">
           <h1>Không có kết quả tìm kiếm cho {`"${keyword}"`} !</h1>
@@ -70,7 +70,7 @@ function SearchResults() {
         <div className="searchResults">
           <h1 className="searchResults-title">Kết quả tìm kiếm cho {`"${keyword}"`}</h1>
           <div className="grid-layout grid-gap-20px-20px">
-            {!loading ? (
+            {
               results.map((result) => (
                 <Link
                   key={result.id}
@@ -79,12 +79,7 @@ function SearchResults() {
                   <MovieItem data={result} />
                 </Link>
               ))
-            ) : (
-              <>
-                
-                <div />
-              </>
-            )}
+            }
           </div>
         </div>
         {page < totalPage ? (

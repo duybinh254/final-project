@@ -4,14 +4,13 @@ import apiConfig from "../../api";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css"
 import 'boxicons';
-// import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 const Movies = () => {
 const [page, setPage] = useState(1)
 const [totalPage, setTotalPage] = useState()
 const [movie, setMovie] = useState([])
-const [loading, setLoading] = useState(false);
+// const [loading, setLoading] = useState(false);
 
 document.title = "Phim hay | Phim lẻ mới nhất"
 const fetchMovie = useCallback(() => {
@@ -21,10 +20,10 @@ const fetchMovie = useCallback(() => {
         setMovie((prev) =>[...prev, ...data.results])
         setTotalPage(data.total_pages)
         console.log(data.total_pages);
-        setLoading(false)
+        // setLoading(false)
     })
     .catch((err) => {
-        setLoading(false);
+        // setLoading(false);
         console.log(err);
       });
 },[page])
@@ -39,7 +38,7 @@ const fetchMovie = useCallback(() => {
   }
 
 useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     fetchMovie()
 },[page, fetchMovie])
 
@@ -69,18 +68,13 @@ return (
         >Movies</h1>
 
         <div className="grid-layout grid-gap-20px-20px">
-        {!loading ? (
+        {
           movie?.map((item) => (
             <Link key={item.id} to={`/details/movie/${item.id}`}>
               <MovieItem data={item} />
             </Link>
           ))
-        ) : (
-            <div> 
-                    
-                    <div></div>
-            </div>
-        )
+        
           
           }
         </div>

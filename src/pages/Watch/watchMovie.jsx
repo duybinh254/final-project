@@ -57,9 +57,7 @@ function WatchMovie () {
            
             </div>
                 <div className='detail-movie-genres'>
-                {/* { data.genres.map((item) =>{
-                  <button key={item.id} content={item.name} />
-                })} */}
+                
                 {info.genres &&
                   info.genres.map((item) => (
                     <button className='btn-genres' key={item.id}>{item.name}</button>
