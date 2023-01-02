@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import apiConfig from '../../api'
 import { Link } from 'react-router-dom'
+import {ToastContainer ,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import StarRatings from 'react-star-ratings';
 import Cast from '../../component/cast/castList'
 import "bootstrap/dist/css/bootstrap.css"
@@ -62,7 +64,22 @@ useEffect (() => {
   getTrailer(media_type, id);
 }, [id, media_type]);
 
+const handleAddFavorite =() => {
 
+  // kiểm tra xem localStorage đã có "key" nào chưa? nếu có thì giải mã ra và thêm tiếp vào còn nếu chưa có thì cho thành mảng rỗng để thêm mới vào
+    const array = localStorage.getItem("key") ? JSON.parse(localStorage.getItem("key")) :[]
+   array.push ({
+    "id":data.id,
+    "poster_path":data.poster_path,
+    "title":data.title || data.name,
+  })
+  
+  console.log(array);
+  
+
+  localStorage.setItem("key",JSON.stringify(array));
+  toast.success("Đã thêm vào danh sách yêu thích")
+}
 
   document.title = data.title || data.name;
 
@@ -122,7 +139,7 @@ useEffect (() => {
             <div className='watch'>
 
             <a className='watch-link watch-trailer' href="#trailer">
-                  Watch Trailer
+                  Xem Trailer
                 </a>
 
                 <Link className='watch-link watch-now'
@@ -136,9 +153,9 @@ useEffect (() => {
                   
 
                 >
-                  Watch Now
+                  Xem Ngay
                 </Link>
-                
+                <a className="watch-link watch-like" onClick={handleAddFavorite}>Yêu Thích</a>
             </div>
         </div>
 
@@ -195,6 +212,7 @@ useEffect (() => {
         
       </div>       
       
+          <ToastContainer />
    </div>
   )
 }

@@ -1,0 +1,32 @@
+.movie-favorite {
+    margin-top: 150px;
+    color: #fff
+    ;
+}
+
+
+.favorite-items {
+    position: relative;
+}
+
+.remove-item button {
+    border: none;
+    background-color: initial;
+    color: #e74c3c;
+    font-size: 30px;
+
+    position: absolute;
+    top: 0;
+    left: 10px; 
+    display: none;
+}
+
+.favorite-items:hover .remove-item button {
+    display: block;
+}
+
+@media (max-width: 768px) {
+.remove-item button {
+    display: block;
+}
+}

@@ -114,6 +114,9 @@ function Header() {
       </div>
     
       <div className="header-info">
+        <Link to="/favorite" className="header-heart">
+          <button className="btn-heart"><FaIcons.FaHeart /> </button>
+        </Link>
         <Link to="/search" className="header-search">
           <button className="btn-search"><FaIcons.FaSearch /></button>
         </Link>

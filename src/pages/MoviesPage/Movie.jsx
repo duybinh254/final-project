@@ -38,7 +38,7 @@ const fetchMovie = useCallback(() => {
   }
 
 useEffect(() => {
-    // setLoading(true);
+   
     fetchMovie()
 },[page, fetchMovie])
 

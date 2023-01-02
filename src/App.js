@@ -14,6 +14,7 @@ import Search from './pages/Search/Search';
 import SearchResults from './pages/Search/Results';
 import Register from './component/Register/Register';
 import Login from './component/Login/Login';
+import Favorite from './pages/Favorite/Favorite';
 
 
 
@@ -34,6 +35,7 @@ function App() {
       <Route path="/results" element={<SearchResults />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/favorite" element={<Favorite />} />
 
     </Routes>
     

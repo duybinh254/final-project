@@ -273,13 +273,19 @@ ul.nav-menu-item a.active {
   position: relative;
   display: block;
   margin-right: 20px;
+  margin-left:10px
 }
 .btn-search {
   background-color: initial;
   border: none;
   color: #e74c3c;
 }
-
+.btn-heart {
+  background-color: initial;
+  color: #e74c3c;
+  border: none;
+  margin-right: 20px;
+}
 
 .navbar-mobile {
  display: none;
